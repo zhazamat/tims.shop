@@ -5,8 +5,8 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class CalculateRequest {
-    private Long id;
+public class QuantityRequest {
+    private long id;
     private Integer quantity;
 
 
