@@ -1,8 +1,10 @@
 package shop.models.entity;
 
+import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import lombok.experimental.FieldDefaults;
 import shop.models.enums.Gender;
 
 import javax.persistence.*;
@@ -10,17 +12,18 @@ import javax.persistence.*;
 @Entity
 @Getter
 @Setter
-@Table(name="shop")
+@Table(name="clothes")
 @ToString
+@FieldDefaults(level = AccessLevel.PRIVATE)
 public class Clothes {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    private String size;
+    Long id;
+    String size;
     @Enumerated(EnumType.ORDINAL)
-    private Gender gender;
-    private  double price;
-    private Boolean available;
+    Gender gender;
+    double price;
+    Boolean available;
     private String color;
     private String category;
 
