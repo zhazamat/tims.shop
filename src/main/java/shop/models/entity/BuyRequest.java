@@ -6,15 +6,10 @@ import lombok.Setter;
 
 import java.util.List;
 import java.util.Map;
-
 @Getter
 @Setter
 @AllArgsConstructor
-public class CalculateResponse {
-
-
-private Map<Clothes,Double> amount;
-
-
-
+public class BuyRequest {
+    private List<Long> ids;
+    private List<Integer>quantities;
 }

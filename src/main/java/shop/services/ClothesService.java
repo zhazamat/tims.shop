@@ -1,11 +1,12 @@
 package shop.services;
 
 import org.springframework.stereotype.Service;
+import shop.models.entity.BuyRequest;
 import shop.models.entity.CalculateResponse;
 import shop.models.entity.Clothes;
-import shop.models.entity.QuantityRequest;
 
 import java.util.List;
+import java.util.Map;
 
 @Service
 public interface ClothesService {
@@ -16,13 +17,15 @@ public interface ClothesService {
     Clothes create(Clothes clothes);
 
     List<Clothes> getAllClothes();
+    List<Clothes> getClothes(long id);
+   List<Double> calculateAmount(long id,int quantity);
 
-   // CalculateResponse calculate(QuantityRequest request);
+    double getTotalSum(long id,int quantity);
 
-    CalculateResponse calculate(long id, int quantity);
+   List<Clothes> getClothesBuyRequest(List<Long> ids);
 
-    Clothes getById(long id);
-
-    double calculateSum(int quantity,long id);
-    double getAmount(int quantity,long id);
+   // List<Double> calculateAmountBuyRequest(List<Long> ids,List<Integer> quantities);
+    double getTotalSumBuyRequest(List<Long> ids,List<Integer> quantities);
+    Map<Clothes,Double> calculateAmountBuyRequest(List<Long> ids,List<Integer> quantities);
+    CalculateResponse calculateBuyRequest(BuyRequest buyRequest);
 }

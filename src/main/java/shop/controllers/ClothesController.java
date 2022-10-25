@@ -2,9 +2,9 @@ package shop.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import shop.models.entity.BuyRequest;
 import shop.models.entity.CalculateResponse;
 import shop.models.entity.Clothes;
-import shop.models.entity.QuantityRequest;
 import shop.services.ClothesService;
 
 import java.util.List;
@@ -39,12 +39,14 @@ public class ClothesController {
     {
         clothesService.delete(clothes);
     }
-    @PostMapping("/list/id")
-    public Clothes getById(@PathVariable long id){
-    return clothesService.getById(id);
+
+    @PostMapping("buy_request")
+    private CalculateResponse calculateWithMap(@RequestBody BuyRequest buyRequest){
+    return clothesService.calculateBuyRequest(buyRequest);
     }
-   @GetMapping("/calculate")
-    public CalculateResponse calculate(@RequestParam long id,@RequestParam int quantity){
-    return clothesService.calculate(id,quantity);
+
+    @GetMapping("/id")
+    public List<Clothes>getId(@RequestParam long id){
+    return clothesService.getClothes(id);
     }
 }
