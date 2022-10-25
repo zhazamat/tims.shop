@@ -20,7 +20,7 @@ public class Clothes {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
     String size;
-    @Enumerated(EnumType.ORDINAL)
+    @Enumerated(EnumType.STRING)
     Gender gender;
     double price;
     Boolean available;
